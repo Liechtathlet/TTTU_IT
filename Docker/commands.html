@@ -1,0 +1,19 @@
+<h1 id="docker-commands">Docker-Commands</h1>
+<h2 id="run-dockerized-application">Run dockerized application</h2>
+<p><strong>Background:</strong> <code>sudo docker run ubuntu:14.04 /bin/echo 'Hello world'</code><br /><strong>Interactive:</strong> <code>sudo docker run -t -i ubuntu:14.04 /bin/bash</code><br /><strong>Daemonized:</strong> <code>sudo docker run -d ubuntu:14.04 /bin/sh -c &quot;while true; do echo hello world; sleep 1; done&quot;</code></p>
+<h2 id="administration-of-containers">Administration of containers</h2>
+<p><strong>List containers:</strong> <code>sudo docker ps</code><br /><strong>View mapped port:</strong> <code>sudo docker port &lt;containerName&gt;</code><br /><strong>Process information:</strong><code>sudo docker top &lt;contaienrName&gt;</code><br /><strong>Status information:</strong> <code>sudo docker inspect &lt;containerName&gt;</code><br /><strong>Logs:</strong> <code>sudo docker logs &lt;containerName&gt;</code><br /><strong>Start container:</strong> <code>sudo docker start &lt;containername&gt;</code><br /><strong>Stop container:</strong> <code>sudo docker stop &lt;containerName&gt;</code><br /><strong>Remove container:</strong> <code>sudo docker rm &lt;containerName&gt;</code></p>
+<h3 id="flags">Flags</h3>
+<p><strong>-P:</strong> Map http ports automatically<br /><strong>-p port:port:</strong> Specific http port binding)<br /><strong>-d:</strong> Run as deamon<br /><strong>-f:</strong> Tail on <code>docker logs</code></p>
+<h2 id="administration-of-images">Administration of images</h2>
+<p><strong>List images:</strong> <code>sudo docker images</code><br /><strong>Get remote image:</strong> <code>sudo docker pull &lt;imageName&gt;:&lt;version|latest&gt;</code><br /><strong>Search remote images:</strong> <code>sudo docker search &lt;query&gt;</code><br /><strong>Tag images:</strong> <code>sudo docker tag &lt;imageId&gt; &lt;user/imageName&gt;:&lt;version&gt;</code><br /><strong>Remove image:</strong> <code>sudo docker rmi &lt;user/imageName&gt;:&lt;version&gt;</code></p>
+<h3 id="update-images">Update images</h3>
+<p>1.<strong>Create container:</strong> <code>sudo docker run -t -i &lt;imageName&gt; /bin/bash</code><br />2.<strong>Make changes</strong><br />3.<strong>Exit bash</strong><br />4.<strong>Commit changes:</strong> <code>sudo docker commit -m &quot;&lt;comment&gt;&quot; -a &quot;&lt;author&gt;&quot; &lt;containerID&gt; &lt;user/imageName&gt;</code></p>
+<h3 id="building-images">Building images</h3>
+<p>1.<strong>Create a dockerfile</strong><br />2.<strong>Write commands</strong><br />3.<strong>Build:</strong> <code>sudo docker build -t &lt;user/imageName&gt;:&lt;version&gt; &lt;dockerfile&gt;</code></p>
+<h4 id="syntax">Syntax</h4>
+<p><strong>&quot;INSTRUCTION statement&quot;</strong> General syntax<br /><strong>FROM <imageName>:<version></strong> Base image<br /><strong>MAINTAINER <name> &lt;<mail>&gt;</strong> Maintainer of the image<br /><strong>RUN <command></strong> Runs a command inside the image <strong>#</strong> Comment</p>
+<p><a href="https://docs.docker.com/reference/builder/">More commands</a></p>
+<h2 id="linking-containers">Linking containers</h2>
+<p><a href="https://docs.docker.com/userguide/dockerlinks/">Introduction</a></p>
+<p><img src="./images/diagram1.png" alt="diagram1" /></p>
