@@ -1,5 +1,6 @@
 #Dockerfile: Office Tools
-FROM ubuntu:latest
+#FROM ubuntu:latest
+FROM i686/ubuntu
 #phusion/baseimage:latest
 MAINTAINER Daniel Brun <dbrun.brown@gmail.com>
 
@@ -40,6 +41,7 @@ ADD . /build
 RUN chmod 775 /build
 #Run
 RUN /build/setup.atom.sh
+RUN /build/setup.pandoc.sh
 
 # Setup X11-socket sharing for gui applications
 # Replace 1000 with your user / group id
