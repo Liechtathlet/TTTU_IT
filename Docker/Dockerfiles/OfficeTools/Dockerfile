@@ -11,6 +11,10 @@ ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:~/.cabal/b
 RUN apt-get update -y
 RUN apt-get upgrade -y
 
+###Copy install files
+ADD . /build
+RUN chmod 775 /build
+
 ###Common-Pakcages
 RUN apt-get install build-essential -y              # Make
 RUN apt-get install software-properties-common -y
@@ -53,12 +57,10 @@ ENV HOME /home/developer
 #Package: LaTex#
 #RUN apt-get install texlive-full -y
 
-ADD . /build
-RUN chmod 775 /build
 #Run
-RUN /build/setup.atom.sh
-RUN /build/setup.pandoc.sh
-RUN /build/setup.latex.sh
+RUN sudo /build/setup.atom.sh
+RUN sudo /build/setup.pandoc.sh
+RUN sudo /build/setup.latex.sh
 
 
 CMD /usr/bin/X11/atom

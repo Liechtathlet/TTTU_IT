@@ -1,2 +1,2 @@
 ##latex
-apt-get install texlive
+apt-get install texlive -y
