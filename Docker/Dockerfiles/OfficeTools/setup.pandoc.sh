@@ -12,8 +12,4 @@ cabal install pandoc pandoc-citeproc
 #TODO: set pandoc path into path
 # export PATH=$PATH:~/.cabal/bin
 
-##create movable executable
-cabal install hsb2hs
-cabal install --flags="embed_data_files" pandoc pandoc-citeproc
-
-#RUN apt-get purge haskell-platform -y
+apt-get purge haskell-platform -y
