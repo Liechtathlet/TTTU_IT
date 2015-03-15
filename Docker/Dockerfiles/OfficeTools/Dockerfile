@@ -34,33 +34,13 @@ USER developer
 ENV HOME /home/developer
 
 
-#@Install Software
-# pandoc
-#RUN add-apt-repository -y ppa:hvr/ghc
-#RUN add-apt-repository ppa:justinbogner/haskell-platform -y
-#RUN apt-get update -y
-#RUN apt-get install ghc-head -y
-#RUN apt-get install cabal-install-head -y
-#RUN cabal update
-#RUN cabal install pandoc pandoc-citeproc
-
-#TODO: Either modify atom for env or set config for pandoc path / copy config.cson from .atom
-#TODO: set pandoc path into path
-# export PATH=$PATH:~/.cabal/bin
-
-##create movable executable
-#RUN cabal install hsb2hs
-#RUN cabal install --flags="embed_data_files" pandoc pandoc-citeproc
-
-#RUN apt-get purge haskell-platform -y
-
-#Package: LaTex#
-#RUN apt-get install texlive-full -y
+##Install Software
 
 #Run
 RUN sudo /build/setup.atom.sh
+#RUN sudo chown -R developer: /home/developer/.atom
 RUN sudo /build/setup.pandoc.sh
+RUN sudo chown -R developer: /home/developer/.cabal
 RUN sudo /build/setup.latex.sh
-
 
 CMD /usr/bin/X11/atom

@@ -3,9 +3,12 @@
 #Web
 
 ##Mail
-SUDO apt-get install thunderbird
+apt-get install thunderbird -y
 
 
 #Tools
 ##Snipping
-SUDO apt-get install shutter
+apt-get install shutter -y
+
+##Office
+apt-get install okular -y

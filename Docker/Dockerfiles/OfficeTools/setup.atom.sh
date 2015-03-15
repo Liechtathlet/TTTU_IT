@@ -3,6 +3,8 @@ add-apt-repository ppa:webupd8team/atom
 apt-get update -y
 apt-get install atom -y
 
+chown -R developer: /home/developer/.atom
+
 ### atom.io packages
 apm install markdown-preview-pandoc
 apm install angularjs
