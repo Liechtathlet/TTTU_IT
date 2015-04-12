@@ -13,6 +13,14 @@ apt-get install shutter -y
 ##Office
 apt-get install okular -y
 
+#Optimizing
+apt-get install linux-firmware-nonfree
+apt-get install gnome-commander libgnomevfs2-extra leafpad
+apt-get install gksu
+
+#Java
+add-apt-repository ppa:openjdk-r/ppa -y
+
 #Links
 ##SSD
 ###https://sites.google.com/site/easylinuxtipsproject/ssd
