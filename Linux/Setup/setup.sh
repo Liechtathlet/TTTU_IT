@@ -12,6 +12,7 @@ apt-get install shutter -y
 
 ##Office
 apt-get install okular -y
+apt-get install skype
 
 #Optimizing
 apt-get install linux-firmware-nonfree
