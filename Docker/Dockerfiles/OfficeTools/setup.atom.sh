@@ -14,3 +14,4 @@ apm install markdown-helpers
 apm install markdown-table-formatter
 apm install todo-show
 apm install merge-conflicts
+apm install pdf-view
