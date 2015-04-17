@@ -1,6 +1,7 @@
 #Dockerfile: Office Tools
-FROM ubuntu:latest
+#FROM ubuntu:latest
 #FROM i686/ubuntu
+FROM 32bit/ubuntu:14.04
 #phusion/baseimage:latest
 MAINTAINER Daniel Brun <dbrun.brown@gmail.com>
 
@@ -39,8 +40,8 @@ ENV HOME /home/developer
 #Run
 RUN sudo /build/setup.atom.sh
 #RUN sudo chown -R developer: /home/developer/.atom
-RUN sudo /build/setup.pandoc.sh
-RUN sudo chown -R developer: /home/developer/.cabal
-RUN sudo /build/setup.latex.sh
+#RUN sudo /build/setup.pandoc.sh
+#RUN sudo chown -R developer: /home/developer/.cabal
+#RUN sudo /build/setup.latex.sh
 
 CMD /usr/bin/X11/atom
