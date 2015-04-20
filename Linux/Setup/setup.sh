@@ -5,6 +5,12 @@
 ##Mail
 apt-get install thunderbird -y
 
+##Google Chrome
+[Source](http://www.2daygeek.com/google-chrome-37-installation-in-linux-mint-17-ubuntu-14-04-debian-7-6/)
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+apt-get update
+apt-get install google-chrome-stable
 
 #Tools
 ##Snipping
