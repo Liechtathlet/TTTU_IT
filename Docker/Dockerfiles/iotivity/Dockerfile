@@ -1,12 +1,9 @@
-#Dockerfile: Office Tools
-FROM ubuntu:latest
-#FROM i686/ubuntu
-#FROM 32bit/ubuntu:14.04
-#phusion/baseimage:latest
+#Dockerfile: iotivity
+FROM 32bit/ubuntu:12.04
+
 MAINTAINER Daniel Brun <dbrun.brown@gmail.com>
 
 ##Environement
-ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:~/.cabal/bin
 
 ##Inital
 RUN apt-get update -y
@@ -17,8 +14,19 @@ ADD . /build
 RUN chmod 775 /build
 
 ###Common-Pakcages
-RUN apt-get install build-essential -y              # Make
-RUN apt-get install software-properties-common -y
+RUN apt-get install build-essential g++ -y
+RUN apt-get install scons -y
+
+###Install Java
+RUN apt-get install openjdk-7-jre
+
+##Packages for Boost
+RUN sudo apt-get install libboost-dev libboost-program-options-dev libexpat1-dev libboost-thread-dev -y
+###RUN sudo apt-get install python-dev autotools-dev libicu-dev build-essential libbz2-dev -y
+###RUN sudo apt-get install libboost-all-dev -y
+
+##Packages for Documentation with doxygen
+RUN apt-get install doxygen -y
 
 ## Setup User
 # Setup X11-socket sharing for gui applications
@@ -37,11 +45,5 @@ ENV HOME /home/developer
 
 ##Install Software
 
-#Run
-RUN sudo /build/setup.atom.sh
+RUN sudo /build/setup.iotivity.sh
 RUN sudo chown -R -c developer: /home/developer/.atom
-RUN sudo /build/setup.pandoc.sh
-RUN sudo chown -R -c developer: /home/developer/.cabal
-RUN sudo /build/setup.latex.sh
-
-CMD /usr/bin/X11/atom
