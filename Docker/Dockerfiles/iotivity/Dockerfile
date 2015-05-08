@@ -1,8 +1,7 @@
 #Dockerfile: iotivity
-FROM 32bit/ubuntu:12.04
+FROM ubuntu:14.04
 
 MAINTAINER Daniel Brun <dbrun.brown@gmail.com>
-
 ##Environement
 
 ##Inital
@@ -14,19 +13,14 @@ ADD . /build
 RUN chmod 775 /build
 
 ###Common-Pakcages
+RUN apt-get install sudo wget -y
 RUN apt-get install build-essential g++ -y
 RUN apt-get install scons -y
+RUN apt-get install git -y
 
 ###Install Java
-RUN apt-get install openjdk-7-jre
+RUN apt-get install openjdk-7-jre -y
 
-##Packages for Boost
-RUN sudo apt-get install libboost-dev libboost-program-options-dev libexpat1-dev libboost-thread-dev -y
-###RUN sudo apt-get install python-dev autotools-dev libicu-dev build-essential libbz2-dev -y
-###RUN sudo apt-get install libboost-all-dev -y
-
-##Packages for Documentation with doxygen
-RUN apt-get install doxygen -y
 
 ## Setup User
 # Setup X11-socket sharing for gui applications
@@ -44,6 +38,4 @@ ENV HOME /home/developer
 
 
 ##Install Software
-
-RUN sudo /build/setup.iotivity.sh
-RUN sudo chown -R -c developer: /home/developer/.atom
+#RUN SUDO sh /build/setup.iotivity.sh
