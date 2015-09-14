@@ -15,6 +15,7 @@ mkdir $AS_TMP_DIR
 mkdir $ANDROID_DIR
 mkdir $AS_DIR
 mkdir $ASDK_DIR
+mkdir $ANDK_DIR
 
 ##Install dependencies
 apt-get install unzip p7zip-full -y

@@ -1,0 +1,1 @@
+sudo docker run -ti --name javadev -p 5000:8080 -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix  -v /home/dani/Development:/home/developer/Development --privileged -v /dev/bus/usb:/dev/bus/usb dbru/javadev:v0 /bin/bash

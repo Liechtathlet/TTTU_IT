@@ -1,5 +1,5 @@
 #Dockerfile: Office Tools
-FROM ubuntu:latest
+FROM ubuntu:14.04
 #FROM i686/ubuntu
 #FROM 32bit/ubuntu:14.04
 #phusion/baseimage:latest
