@@ -1,5 +1,5 @@
-#Docker-Commands
-##Run dockerized application
+# Docker-Commands
+## Run dockerized application
 **Background:**         `sudo docker run ubuntu:14.04 /bin/echo 'Hello world'`  
 **Interactive:**       `sudo docker run -t -i ubuntu:14.04 /bin/bash`  
 **Daemonized:**        `sudo docker run -d ubuntu:14.04 /bin/sh -c "while true; do echo hello world; sleep 1; done"`  
@@ -15,6 +15,8 @@
 **Start container:**   `sudo docker start <containername>`  
 **Stop container:**    `sudo docker stop <containerName>`  
 **Remove container:**  `sudo docker rm <containerName>`
+**Delete all containers:** docker rm $(docker ps -a -q)
+**Delete all images:** docker rmi $(docker images -q)
 
 ###Flags
 **-P:**                Map http ports automatically  

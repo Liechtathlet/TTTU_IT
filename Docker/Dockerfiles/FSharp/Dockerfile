@@ -1,8 +1,5 @@
-#Dockerfile: Office Tools
+# Dockerfile: F#
 FROM ubuntu:14.04
-#FROM i686/ubuntu
-#FROM 32bit/ubuntu:14.04
-#phusion/baseimage:latest
 MAINTAINER Daniel Brun <dbrun.brown@gmail.com>
 
 ##Environement
@@ -12,13 +9,8 @@ ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:~/.cabal/b
 RUN apt-get update -y
 RUN apt-get upgrade -y
 
-###Copy install files
-ADD . /build
-RUN chmod 775 /build
-
-###Common-Pakcages
-RUN apt-get install build-essential -y              # Make
-RUN apt-get install software-properties-common -y
+RUN chown root:root /usr/bin/sudo
+RUN chmod 4755 /usr/bin/sudo
 
 ## Setup User
 # Setup X11-socket sharing for gui applications
@@ -38,11 +30,15 @@ ENV HOME /home/developer
 ##Install Software
 
 #Run
-RUN sudo /build/setup.atom.sh
-RUN sudo chown -R -c developer: /home/developer/.atom
-RUN sudo /build/setup.pandoc.sh
-RUN sudo chown -R -c developer: /home/developer/.cabal
-RUN sudo /build/setup.latex.sh
+RUN sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+RUN echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
 
-ENTRYPOINT [ "atom" ]
-CMD /usr/bin/X11/atom
+RUN apt-get install software-properties-common
+RUN apt-get update -y
+RUN apt-get install mono-complete fsharp
+
+RUN apt install language-pack-{gnome-,}pt
+
+RUN add-apt-repository ppa:ubuntu-desktop/ubuntu-make
+RUN apt-get update && sudo apt-get install ubuntu-make
+RUN umake web visual-studio-code
